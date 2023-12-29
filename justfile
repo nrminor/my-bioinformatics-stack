@@ -7,13 +7,13 @@ all-macos:
     just br
     just rs
     just go
+    just r
     just gpy
     @echo "Installation of the entire stack to MacOS completed with no errors."
 alias mac := all-macos
 
 # Language ecosystems used across my bioinformatics stack
 lang-ecosystems:
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
     -bash Miniforge3-$(uname)-$(uname -m).sh -b -u
@@ -21,6 +21,7 @@ alias le := lang-ecosystems
 
 # MacOS tools installed with Homebrew
 brew-installs:
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install \
     git \
     wget \
@@ -32,7 +33,6 @@ brew-installs:
     seqkit \
     csvtk \
     vsearch \
-    fastp \
     bedtools \
     vcftools \
     vcflib \
@@ -44,6 +44,12 @@ brew-installs:
     java \
     go
 alias br := brew-installs
+
+# basic packages for use across R environments
+r-tools:
+    Rscript -e "install.packages('renv', clean = TRUE)"
+    Rscript -e "install.packages('tidyverse', clean = TRUE)"
+alias r := r-tools
 
 # Tools managed with the Cargo/Crates.io ecosystem
 rust-tools:
