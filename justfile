@@ -29,6 +29,8 @@ brew-installs:
     zstd \
     pigz \
     unzip \
+    fish \
+    nushell \
     precommit \
     seqkit \
     csvtk \
