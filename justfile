@@ -42,7 +42,10 @@ brew-installs:
     minimap2 \
     r \
     java \
-    go
+    go \
+    nim \
+    duckdb \
+    prqlc
 alias br := brew-installs
 
 # basic packages for use across R environments
@@ -71,6 +74,7 @@ go-builds:
     cd ..
     mv still ~/bioinformatics/
     echo "export PATH=$PATH:~/bioinformatics/still" >> ~/.zprofile
+    source ~/.zprofile
 alias go := go-builds
 
 # Short list of tools to be installed globally with the Python toolchain
@@ -86,6 +90,7 @@ global-py-installs:
     "ncbi-datasets-cli>=16.0.0" \
     "jupyter>=1.0.0"
     mamba clean --all
+    pip install prql-python
 alias gpy := global-py-installs
 
 all-ubuntu:
