@@ -80,7 +80,7 @@ alias go := go-builds
 
 # Short list of tools to be installed globally with the Python toolchain
 global-py-installs:
-    conda install -y python=3.12
+    conda install conda-forge::mamba
     mamba install -y -c conda-forge -c bioconda \
     "seqfu>1.10" \
     "nextflow>=23.10" \
