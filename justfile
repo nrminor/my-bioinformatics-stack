@@ -30,7 +30,6 @@ brew-installs:
     pigz \
     unzip \
     fish \
-    nushell \
     precommit \
     seqkit \
     csvtk \
