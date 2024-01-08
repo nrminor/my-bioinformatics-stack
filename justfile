@@ -22,31 +22,29 @@ alias le := lang-ecosystems
 # MacOS tools installed with Homebrew
 brew-installs:
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install \
-    git \
-    wget \
-    curl \
-    zstd \
-    pigz \
-    unzip \
-    fish \
-    precommit \
-    seqkit \
-    csvtk \
-    vsearch \
-    bedtools \
-    vcftools \
-    vcflib \
-    bcftools \
-    samtools \
-    bwa \
-    minimap2 \
-    r \
-    java \
-    go \
-    nim \
-    duckdb \
-    prqlc
+    brew install wget
+    brew install curl
+    brew install zstd
+    brew install pigz
+    brew install unzip
+    brew install fish
+    brew install pre-commit
+    brew install seqkit
+    brew install csvtk
+    brew install vsearch
+    brew install bedtools
+    brew install vcftools
+    brew install vcflib
+    brew install bcftools
+    brew install samtools
+    brew install bwa
+    brew install minimap2
+    brew install r
+    brew install java
+    brew install go
+    brew install nim
+    brew install duckdb
+    brew install prqlc
 alias br := brew-installs
 
 # basic packages for use across R environments
