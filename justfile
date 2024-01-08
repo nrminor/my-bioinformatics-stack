@@ -91,7 +91,7 @@ global-py-installs:
     sra-tools \
     "ncbi-datasets-cli>=16.0.0" \
     "jupyter>=1.0.0"
-    mamba clean --all
+    mamba clean -y --all
     pip install prql-python
 alias gpy := global-py-installs
 
