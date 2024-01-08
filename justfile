@@ -34,7 +34,7 @@ brew-installs:
     brew install vsearch
     brew install bedtools
     brew install vcftools
-    brew install vcflib
+    brew install bio/vcflib
     brew install bcftools
     brew install samtools
     brew install bwa
