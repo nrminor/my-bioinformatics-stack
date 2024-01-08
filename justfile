@@ -79,13 +79,14 @@ alias go := go-builds
 
 # Short list of tools to be installed globally with the Python toolchain
 global-py-installs:
+    conda install -y python=3.12
     mamba install -y -c conda-forge -c bioconda \
     "seqfu>1.10" \
     "nextflow>=23.10" \
     "multiqc>=1.19" \
     "poetry>=1.7.1" \
     "tox>=4.11.4" \
-    "plink" \
+    plink \
     sra-tools \
     "ncbi-datasets-cli>=16.0.0" \
     "jupyter>=1.0.0"
