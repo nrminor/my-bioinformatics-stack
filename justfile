@@ -62,6 +62,8 @@ rust-tools:
     cargo install scidataflow
     cargo install just 
     cargo install nu --features=dataframe
+    cargo install qsv --locked --features all_features
+    cargo install csvlens
 alias rs := rust-tools
 
 # Go tools built from source
