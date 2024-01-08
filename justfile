@@ -68,9 +68,7 @@ alias rs := rust-tools
 go-builds:
     -mkdir ~/bioinformatics
     git clone https://github.com/danielecook/still.git && \
-    cd still && \
-    go build
-    cd ..
+    (cd still && go build && cd ..)
     mv still ~/bioinformatics/
     echo "export PATH=$PATH:~/bioinformatics/still" >> ~/.zprofile
     source ~/.zprofile
