@@ -16,7 +16,8 @@ alias mac := all-macos
 lang-ecosystems:
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-    -bash Miniforge3-$(uname)-$(uname -m).sh -b -u
+    -bash Miniforge3-$(uname)-$(uname -m).sh -b -u &&
+    echo "PATH=$PATH:~/miniforge3/bin" >> ~.zprofile
 alias le := lang-ecosystems
 
 # MacOS tools installed with Homebrew
