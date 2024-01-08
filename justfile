@@ -1,4 +1,4 @@
-curl -Ls https://micro.mamba.pm/api/micromamba/osx-64/latest | tar -xvj bin/micromambadefault:
+default:
     just --list
 
 # Install everything for MacOS
