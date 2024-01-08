@@ -15,7 +15,7 @@ alias mac := all-macos
 # Language ecosystems used across my bioinformatics stack
 lang-ecosystems:
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    curl -Ls https://micro.mamba.pm/api/micromamba/osx-64/latest | tar -xvj bin/micromamba --strip-components=1
+    "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 alias le := lang-ecosystems
 
 # MacOS tools installed with Homebrew
