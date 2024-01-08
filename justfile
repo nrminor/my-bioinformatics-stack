@@ -1,4 +1,4 @@
-default:
+/default:
     just --list
 
 # Install everything for MacOS
@@ -34,7 +34,7 @@ brew-installs:
     brew install vsearch
     brew install bedtools
     brew install vcftools
-    brew install bio/vcflib
+    brew install brewsci/bio/vcflib
     brew install bcftools
     brew install samtools
     brew install bwa
