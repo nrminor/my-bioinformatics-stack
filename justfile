@@ -86,7 +86,7 @@ global-py-installs:
     "poetry>=1.7.1" \
     "tox>=4.11.4" \
     "plink" \
-    "sra-tools>=3.0.10" \
+    sra-tools \
     "ncbi-datasets-cli>=16.0.0" \
     "jupyter>=1.0.0"
     mamba clean --all
