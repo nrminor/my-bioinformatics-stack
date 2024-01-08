@@ -16,8 +16,9 @@ alias mac := all-macos
 lang-ecosystems:
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     wget -q https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-2-MacOSX-x86_64.sh -O ~/miniconda.sh
-    /bin/bash ~/miniconda.sh -b
+    -/bin/bash ~/miniconda.sh -b
     rm ~/miniconda.sh
+    ~/miniconda3/bin/conda init zsh
 alias le := lang-ecosystems
 
 # MacOS tools installed with Homebrew
