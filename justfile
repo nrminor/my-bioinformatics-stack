@@ -52,19 +52,19 @@ alias br := brew-installs
 
 # basic packages for use across R environments
 r-tools:
-    Rscript -e "install.packages('renv', clean = TRUE)"
-    Rscript -e "install.packages('tidyverse', clean = TRUE)"
+    #!/usr/bin/env Rscript
+    install.packages('renv', repos = 'https://cloud.r-project.org/', clean = TRUE)
+    install.packages('tidyverse', repos = 'https://cloud.r-project.org/', clean = TRUE)
 alias r := r-tools
 
 # Tools managed with the Cargo/Crates.io ecosystem
 rust-tools:
-    cargo install \
-    sd \
-    nohuman \
-    ssubmit \
-    scidataflow \
-    just \
-    nu
+    cargo install sd
+    cargo install nohuman
+    cargo install ssubmit
+    cargo install scidataflow
+    cargo install just 
+    cargo install nu --features=dataframe
 alias rs := rust-tools
 
 # Go tools built from source
