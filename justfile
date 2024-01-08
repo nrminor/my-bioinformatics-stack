@@ -1,4 +1,4 @@
-/default:
+default:
     just --list
 
 # Install everything for MacOS
