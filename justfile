@@ -47,6 +47,8 @@ brew-installs:
     brew install nim
     brew install duckdb
     brew install prqlc
+    -brew install --cask warp
+    -brew install --cask docker
 alias br := brew-installs
 
 # basic packages for use across R environments
@@ -64,7 +66,7 @@ rust-tools:
     cargo install scidataflow
     cargo install just 
     cargo install nu --features=dataframe
-    cargo install qsv --locked --features all_features
+    cargo install qsv --locked --features=apply,foreach,polars,to,to_parquet,self_update,feature_capable
     cargo install csvlens
 alias rs := rust-tools
 
