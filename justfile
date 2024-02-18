@@ -1,4 +1,5 @@
 default:
+    @echo "Please note that this stack installation justfile has predominantly been tested on MacOS and less so on any Linux distros."
     just --list
 
 # Install everything for MacOS
@@ -8,7 +9,7 @@ all-macos:
     just rs
     just go
     just r
-    just gpy
+    just py
     @echo "Installation of the entire stack to MacOS completed with no errors."
 alias mac := all-macos
 
@@ -29,7 +30,6 @@ brew-installs:
     brew install zstd
     brew install pigz
     brew install unzip
-    brew install fish
     brew install pre-commit
     brew install seqkit
     brew install csvtk
@@ -60,11 +60,11 @@ alias r := r-tools
 
 # Tools managed with the Cargo/Crates.io ecosystem
 rust-tools:
-    cargo install sd
+    cargo install just 
+    cargo install du-dust
     cargo install nohuman
     cargo install ssubmit
     cargo install scidataflow
-    cargo install just 
     cargo install nu --features=dataframe
     cargo install qsv --locked --features=apply,foreach,polars,to,to_parquet,self_update,feature_capable
     cargo install csvlens
@@ -80,8 +80,8 @@ go-builds:
     source ~/.zprofile
 alias go := go-builds
 
-# Short list of tools to be installed globally with the Python toolchain
-global-py-installs:
+# Shortlist of tools to install in the base conda environment
+conda-installs:
     conda install -y conda-forge::mamba
     mamba install -y -c conda-forge -c bioconda \
     "seqfu>1.10" \
@@ -92,10 +92,23 @@ global-py-installs:
     plink \
     sra-tools \
     "ncbi-datasets-cli>=16.0.0" \
-    "jupyter>=1.0.0"
+    jupyter \
+    ipykernel
     mamba clean -y --all
+alias conda := conda-installs
+
+# Shortlist of tools to install with from PyPI
+pip-installs:
     pip install prql-python
-alias gpy := global-py-installs
+    pip install uv
+    pip install marimo
+alias pip := pip-installs
+
+# Short list of tools to be installed globally with the Python toolchain
+global-py-installs:
+    just conda
+    just pip
+alias py := global-py-installs
 
 all-ubuntu:
 
