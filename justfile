@@ -25,6 +25,10 @@ alias le := lang-ecosystems
 # MacOS tools installed with Homebrew
 brew-installs:
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install r
+    brew install java
+    brew install go
+    brew install nim
     brew install wget
     brew install curl
     brew install zstd
@@ -41,10 +45,6 @@ brew-installs:
     brew install samtools
     brew install bwa
     brew install minimap2
-    brew install r
-    brew install java
-    brew install go
-    brew install nim
     brew install duckdb
     brew install prqlc
     -brew install --cask warp
