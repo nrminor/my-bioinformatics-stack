@@ -26,6 +26,8 @@ alias le := lang-ecosystems
 # MacOS tools installed with Homebrew
 brew-installs:
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install neovim
+    brew install lazygit
     brew install r
     brew install java
     brew install go
