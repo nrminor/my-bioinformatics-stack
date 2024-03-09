@@ -15,11 +15,12 @@ alias mac := all-macos
 
 # Language ecosystems used across my bioinformatics stack
 lang-ecosystems:
+    # install Rust toolchain including the cargo package/library and project manager
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    wget -q https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-2-MacOSX-x86_64.sh -O miniconda.sh
-    -/bin/bash miniconda.sh -b
-    rm miniconda.sh
-    ~/miniconda3/bin/conda init zsh
+    # install `pixi`, a fast conda environment solver for python
+    curl -fsSL https://pixi.sh/install.sh | bash
+    # install the julia toolchain
+    curl -fsSL https://install.julialang.org | sh -s -- --yes
 alias le := lang-ecosystems
 
 # MacOS tools installed with Homebrew
@@ -28,7 +29,6 @@ brew-installs:
     brew install r
     brew install java
     brew install go
-    brew install nim
     brew install wget
     brew install curl
     brew install zstd
@@ -40,7 +40,6 @@ brew-installs:
     brew install vsearch
     brew install bedtools
     brew install vcftools
-    brew install brewsci/bio/vcflib
     brew install bcftools
     brew install samtools
     brew install bwa
@@ -49,6 +48,7 @@ brew-installs:
     brew install prqlc
     -brew install --cask warp
     -brew install --cask docker
+    -brew install --cask vscode
 alias br := brew-installs
 
 # basic packages for use across R environments
@@ -66,7 +66,7 @@ rust-tools:
     cargo install ssubmit
     cargo install scidataflow
     cargo install nu --features=dataframe
-    cargo install qsv --locked --features=apply,foreach,polars,to,to_parquet,self_update,feature_capable
+    cargo install qsv --locked --features=apply,foreach,polars,luau,to,to_parquet,self_update,feature_capable
     cargo install csvlens
 alias rs := rust-tools
 
@@ -82,26 +82,15 @@ alias go := go-builds
 
 # Shortlist of tools to install in the base conda environment
 conda-installs:
-    conda install -y conda-forge::mamba
-    mamba install -y -c conda-forge -c bioconda \
-    "seqfu>1.10" \
-    "nextflow>=23.10" \
-    "multiqc>=1.19" \
-    "poetry>=1.7.1" \
-    "tox>=4.11.4" \
-    plink \
-    sra-tools \
-    "ncbi-datasets-cli>=16.0.0" \
-    jupyter \
-    ipykernel
-    mamba clean -y --all
+    pixi global install \
+    -c conda-forge -c bioconda \
+    python==3.12 ruff poetry tox pytest micromamba marimo quarto seqfu nextflow multiqc plink sra-tools ncbi-datasets-cli
 alias conda := conda-installs
 
 # Shortlist of tools to install with from PyPI
 pip-installs:
-    pip install prql-python
     pip install uv
-    pip install marimo
+    uv pip install prql-python
 alias pip := pip-installs
 
 # Short list of tools to be installed globally with the Python toolchain
