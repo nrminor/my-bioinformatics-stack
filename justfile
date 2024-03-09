@@ -64,7 +64,8 @@ alias r := r-tools
 
 # Tools managed with the Cargo/Crates.io ecosystem
 rust-tools:
-    cargo install just 
+    cargo install just
+    cargo install --locked bat
     cargo install du-dust
     cargo install nohuman
     cargo install ssubmit
