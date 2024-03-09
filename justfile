@@ -26,31 +26,33 @@ alias le := lang-ecosystems
 # MacOS tools installed with Homebrew
 brew-installs:
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install neovim
-    brew install lazygit
-    brew install r
-    brew install java
-    brew install go
-    brew install wget
-    brew install curl
-    brew install zstd
-    brew install pigz
-    brew install unzip
-    brew install pre-commit
-    brew install seqkit
-    brew install csvtk
-    brew install vsearch
-    brew install bedtools
-    brew install vcftools
-    brew install bcftools
-    brew install samtools
-    brew install bwa
-    brew install minimap2
-    brew install duckdb
-    brew install prqlc
-    -brew install --cask warp
-    -brew install --cask docker
-    -brew install --cask vscode
+    brew install --quiet neovim
+    brew install --quiet lazygit
+    brew install --quiet r
+    brew install --quiet openjdk
+    brew install --quiet oracle-jdk --cask
+    echo export "JAVA_HOME=\$(/usr/libexec/java_home)" >> ~/.zshrc
+    brew install --quiet go
+    brew install --quiet wget
+    brew install --quiet curl
+    brew install --quiet zstd
+    brew install --quiet pigz
+    brew install --quiet unzip
+    brew install --quiet pre-commit
+    brew install --quiet seqkit
+    brew install --quiet csvtk
+    brew install --quiet vsearch
+    brew install --quiet bedtools
+    brew install --quiet vcftools
+    brew install --quiet bcftools
+    brew install --quiet samtools
+    brew install --quiet bwa
+    brew install --quiet minimap2
+    brew install --quiet duckdb
+    brew install --quiet prqlc
+    -brew install --quiet --cask warp
+    -brew install --quiet --cask docker
+    -brew install --quiet --cask vscode
 alias br := brew-installs
 
 # basic packages for use across R environments
@@ -86,7 +88,8 @@ alias go := go-builds
 conda-installs:
     pixi global install \
     -c conda-forge -c bioconda \
-    python==3.12 ruff poetry tox pytest micromamba marimo quarto seqfu nextflow multiqc plink sra-tools ncbi-datasets-cli
+    python==3.12 ruff poetry tox pytest micromamba marimo quarto seqfu multiqc plink sra-tools ncbi-datasets-cli
+    echo 'export PATH=$PATH:~/.pixi' >> ~/.zprofile
 alias conda := conda-installs
 
 # Shortlist of tools to install with from PyPI
